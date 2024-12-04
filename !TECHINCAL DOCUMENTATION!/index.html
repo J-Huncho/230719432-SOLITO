@@ -1,0 +1,115 @@
+import Link from 'next/link'
+import { Button } from "@/components/ui/button"
+import { ScrollArea } from "@/components/ui/scroll-area"
+
+export default function Component() {
+  return (
+    <div className="flex h-screen overflow-hidden">
+      {/* Sidebar */}
+      <aside className="w-64 bg-gray-100 dark:bg-gray-800 overflow-y-auto">
+        <ScrollArea className="h-full">
+          <nav className="p-4 space-y-2">
+            <h2 className="text-lg font-semibold mb-2">Next.js App Router</h2>
+            <Link href="#introduction">
+              <Button variant="ghost" className="w-full justify-start">Introduction</Button>
+            </Link>
+            <Link href="#getting-started">
+              <Button variant="ghost" className="w-full justify-start">Getting Started</Button>
+            </Link>
+            <Link href="#routing">
+              <Button variant="ghost" className="w-full justify-start">Routing</Button>
+            </Link>
+            <Link href="#pages-and-layouts">
+              <Button variant="ghost" className="w-full justify-start">Pages and Layouts</Button>
+            </Link>
+            <Link href="#data-fetching">
+              <Button variant="ghost" className="w-full justify-start">Data Fetching</Button>
+            </Link>
+            <Link href="#rendering">
+              <Button variant="ghost" className="w-full justify-start">Rendering</Button>
+            </Link>
+            <Link href="#caching">
+              <Button variant="ghost" className="w-full justify-start">Caching</Button>
+            </Link>
+          </nav>
+        </ScrollArea>
+      </aside>
+
+      {/* Main content */}
+      <main className="flex-1 overflow-y-auto p-6">
+        <ScrollArea className="h-full">
+          <div className="max-w-3xl mx-auto space-y-8">
+            <section id="introduction">
+              <h1 className="text-3xl font-bold mb-4">Next.js App Router Documentation</h1>
+              <p className="text-lg text-muted-foreground">
+                Welcome to the Next.js App Router documentation. This guide will help you understand and implement the latest routing system in Next.js applications.
+              </p>
+            </section>
+
+            <section id="getting-started">
+              <h2 className="text-2xl font-semibold mb-2">Getting Started</h2>
+              <p>To start using the App Router, create a new Next.js project or update an existing one to the latest version. Then, create an `app` directory in your project root.</p>
+              <pre className="bg-muted p-4 rounded-md mt-2">
+                <code>
+                  {`npx create-next-app@latest my-app --use-npm
+cd my-app
+npm run dev`}
+                </code>
+              </pre>
+            </section>
+
+            <section id="routing">
+              <h2 className="text-2xl font-semibold mb-2">Routing</h2>
+              <p>The App Router uses a file-system based routing mechanism. Each folder in the `app` directory represents a route segment, and the hierarchy defines the URL structure.</p>
+              <ul className="list-disc list-inside mt-2">
+                <li>Create folders for each route segment</li>
+                <li>Use `page.js` files to define the UI for a route</li>
+                <li>Nested routes are created by nesting folders</li>
+              </ul>
+            </section>
+
+            <section id="pages-and-layouts">
+              <h2 className="text-2xl font-semibold mb-2">Pages and Layouts</h2>
+              <p>Pages are UI unique to a route, while layouts are shared UI between multiple pages.</p>
+              <ul className="list-disc list-inside mt-2">
+                <li>Create a `page.js` file in a route folder to define a page</li>
+                <li>Use `layout.js` files to create shared layouts</li>
+                <li>Layouts can be nested for more complex UI structures</li>
+              </ul>
+            </section>
+
+            <section id="data-fetching">
+              <h2 className="text-2xl font-semibold mb-2">Data Fetching</h2>
+              <p>Next.js provides powerful data fetching mechanisms that work seamlessly with the App Router.</p>
+              <ul className="list-disc list-inside mt-2">
+                <li>Use `fetch()` for client-side and server-side data fetching</li>
+                <li>Implement React Server Components for efficient server-side rendering</li>
+                <li>Utilize `useEffect` for client-side only data fetching</li>
+              </ul>
+            </section>
+
+            <section id="rendering">
+              <h2 className="text-2xl font-semibold mb-2">Rendering</h2>
+              <p>The App Router supports both server-side and client-side rendering strategies.</p>
+              <ul className="list-disc list-inside mt-2">
+                <li>Server Components are the default for improved performance</li>
+                <li>Use the `'use client'` directive for Client Components</li>
+                <li>Mix Server and Client Components for optimal user experiences</li>
+              </ul>
+            </section>
+
+            <section id="caching">
+              <h2 className="text-2xl font-semibold mb-2">Caching</h2>
+              <p>Next.js provides built-in caching mechanisms to improve performance and reduce server load.</p>
+              <ul className="list-disc list-inside mt-2">
+                <li>Route Cache for faster navigation between pages</li>
+                <li>Data Cache for storing fetch requests</li>
+                <li>Full Route Cache for static routes</li>
+              </ul>
+            </section>
+          </div>
+        </ScrollArea>
+      </main>
+    </div>
+  )
+}
